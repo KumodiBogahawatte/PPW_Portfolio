@@ -114,20 +114,6 @@ export default function CV() {
     return () => observer.disconnect()
   }, [])
 
-  const handlePrint = () => {
-    const style = document.createElement('style')
-    style.id = 'cv-print-style'
-    style.innerHTML = `
-      @media print {
-        body > * { display: none !important; }
-        #cv-printable { display: block !important; position: static !important; }
-      }
-    `
-    document.head.appendChild(style)
-    window.print()
-    setTimeout(() => document.getElementById('cv-print-style')?.remove(), 1000)
-  }
-
   return (
     <section id="cv" ref={ref} className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-6xl mx-auto">
@@ -136,12 +122,13 @@ export default function CV() {
             <p className="section-subheading">Curriculum Vitae</p>
             <h2 className="section-heading">Professional Profile</h2>
           </div>
-          <button
-            onClick={handlePrint}
+          <a
+            href="/Kumodi_Bogahawatte_CV.pdf"
+            download="Kumodi_Bogahawatte_CV.pdf"
             className="no-print flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors shadow-sm"
           >
             <Download size={15} /> Download CV as PDF
-          </button>
+          </a>
         </div>
 
         {/* CV Document */}
