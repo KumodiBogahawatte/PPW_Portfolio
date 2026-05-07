@@ -6,7 +6,7 @@ const navItems = [
   { label: 'Reflective Journal', href: '#journal' },
   { label: 'Career Plan', href: '#career' },
   { label: 'CV', href: '#cv' },
-  { label: 'Certifications', href: '#certifications' },
+  { label: 'Course Evidence', href: '#certifications' },
 ]
 
 export default function Navbar({ dark, toggleDark }) {

@@ -2,11 +2,11 @@ import { GitBranch, Globe, Mail, ChevronDown, MapPin } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const interests = [
-  "Full-Stack Development",
-  "Cloud Computing",
-  "AI & Machine Learning",
-  "Open Source",
-  "UI/UX Design",
+  "Professional Communication",
+  "Business Writing",
+  "Interview Readiness",
+  "Career Planning",
+  "Software Engineering",
 ];
 
 export default function Introduction() {
@@ -62,13 +62,11 @@ export default function Introduction() {
               style={{ transitionDelay: "0.2s" }}
             >
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                I am a fourth-year Software Engineering undergraduate at the Sri
-                Lanka Institute of Information Technology (SLIIT), with a
-                genuine passion for building meaningful software — from elegant
-                user interfaces to robust back-end systems. Having grown up in
-                Colombo, Sri Lanka, I developed an early curiosity for how
-                technology could solve real-world problems in my community,
-                which ultimately led me to pursue engineering.
+                I am Kumodi Bogahawatte, a fourth-year Information Technology
+                undergraduate at SLIIT specializing in Software Engineering.
+                Through my studies and internship experience, I have developed a
+                strong interest in building practical web solutions that are both
+                reliable and user friendly.
               </p>
             </div>
 
@@ -77,13 +75,12 @@ export default function Introduction() {
               style={{ transitionDelay: "0.3s" }}
             >
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                Beyond the classroom, I am an avid contributor to open-source
-                projects and enjoy attending local tech meetups. I believe that
-                the best engineers are lifelong learners — and that mindset
-                drives everything I do, from how I approach a tricky algorithm
-                to how I collaborate with my team. My long-term aspiration is to
-                become a solutions architect who bridges cutting-edge cloud
-                infrastructure with human-centred product design.
+                The PPW module helped me understand that technical ability alone
+                is not enough for career success. Professional writing, email
+                etiquette, active listening, teamwork, and interview readiness
+                are equally important. This portfolio presents my growth in these
+                areas and outlines how I plan to continue developing as a
+                confident software professional.
               </p>
             </div>
 

@@ -19,10 +19,102 @@
 }
 
 @media print {
-  nav, .no-print { display: none !important; }
-  body { font-size: 11pt; color: #000 !important; background: #fff !important; }
-  section { page-break-inside: avoid; margin-bottom: 2rem; }
-  .card { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+  @page { size: A4; margin: 8mm; }
+
+  /* Keep website colors and visual style in print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force print to follow light theme colors even if dark mode is on */
+  [class*="dark:bg-"] { background: inherit !important; }
+  [class*="dark:text-"] { color: inherit !important; }
+  [class*="dark:border-"] { border-color: inherit !important; }
+
+  nav, .no-print {
+    display: none !important;
+  }
+
+  /* Keep website look but remove excess print spacing */
+  section {
+    min-height: auto !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    margin: 0 !important;
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Reduce common utility spacing in print */
+  [class*="py-24"] { padding-top: 0.9rem !important; padding-bottom: 0.9rem !important; }
+  [class*="pt-20"] { padding-top: 0.9rem !important; }
+  [class*="pb-16"] { padding-bottom: 0.9rem !important; }
+  [class*="mt-20"] { margin-top: 0.4rem !important; }
+  [class*="mb-16"] { margin-bottom: 0.5rem !important; }
+  [class*="mt-12"] { margin-top: 0.45rem !important; }
+
+  /* Intro must stay on one page and include right profile card details */
+  #introduction {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  #introduction .grid {
+    gap: 1rem !important;
+    align-items: start !important;
+  }
+  #introduction .space-y-6 > * + * {
+    margin-top: 0.7rem !important;
+  }
+
+  /* Ensure reflective journal and career sections are always visible */
+  #journal,
+  #career {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  #journal { page-break-after: always !important; break-after: page !important; }
+  #career { page-break-after: always !important; break-after: page !important; }
+
+  /* CV should print in around two pages */
+  #cv {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+  #cv #cv-printable {
+    font-size: 10.2pt !important;
+    line-height: 1.33 !important;
+  }
+  #cv .cv-project-item:nth-child(n+5) {
+    display: none !important;
+  }
+
+  /* Certifications in one page */
+  #certifications {
+    page-break-before: always !important;
+    break-before: page !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Ensure animated items are visible in print */
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 ::-webkit-scrollbar { width: 6px; }

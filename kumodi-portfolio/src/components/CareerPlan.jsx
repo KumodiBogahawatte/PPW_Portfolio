@@ -24,9 +24,9 @@ const phases = [
       {
         heading: 'Soft Skills to Develop',
         items: [
-          'Strengthen technical communication through writing and documentation',
-          'Build professional networking habits via LinkedIn and local tech events',
-          'Improve Agile/Scrum workflow competency',
+          'Strengthen formal business writing and email etiquette',
+          'Improve interview communication using STAR-based responses',
+          'Build networking habits through LinkedIn and local tech events',
         ],
       },
       {
@@ -34,7 +34,7 @@ const phases = [
         items: [
           'Complete a 6-month software engineering internship (Colombo-based or remote)',
           'Build and deploy 2–3 full-stack personal projects with public GitHub repos',
-          'Complete AWS Cloud Practitioner course on A Cloud Guru',
+          'Complete one additional industry-recognized course each year',
           'Contribute to at least one open-source project on GitHub',
           'Attend 2 industry tech meetups per semester (e.g., SL Tech Talks)',
         ],
@@ -65,7 +65,7 @@ const phases = [
         items: [
           'Leadership and mentoring of junior developers',
           'Cross-functional stakeholder communication',
-          'Strategic thinking and product roadmap awareness',
+          'Professional report writing and presentation confidence',
         ],
       },
       {
@@ -146,7 +146,7 @@ export default function CareerPlan() {
           <p className="section-subheading">Career Development</p>
           <h2 className="section-heading">My Professional<br />Growth Roadmap</h2>
           <p className="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
-            A structured, realistic plan spanning the next decade — built around deliberate skill development, meaningful experiences, and progressive leadership growth.
+            A structured plan shaped by PPW learning outcomes, balancing technical growth with communication, professionalism, and long-term leadership development.
           </p>
         </div>
 

@@ -3,51 +3,15 @@ import { Award, ExternalLink, Calendar, CheckCircle2 } from 'lucide-react'
 
 const certs = [
   {
-    name: 'The Web Developer Bootcamp 2024',
-    platform: 'Udemy',
-    instructor: 'Colt Steele',
-    date: 'March 2024',
-    id: 'UC-web-dev-2024',
-    skills: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Express', 'MongoDB', 'REST APIs'],
-    desc: 'A comprehensive 65-hour course covering the full web development stack from fundamentals to deployment. I completed this to solidify my understanding of JavaScript and back-end development beyond what the university curriculum covered.',
+    name: 'Introduction to Artificial Intelligence',
+    platform: 'Simplilearn SkillUp',
+    instructor: 'Simplilearn',
+    date: '7 May 2026',
+    id: '10199038',
+    skills: ['Artificial Intelligence Fundamentals', 'Technology Awareness', 'Continuous Learning', 'Professional Development'],
+    desc: 'I completed this certificate on 7 May 2026 to improve my understanding of modern AI concepts and strengthen my technical knowledge beyond classroom learning. This course supports my PPW portfolio by demonstrating active, self-directed skill development within the last year.',
     color: 'amber',
     badge: '🏅',
-    verified: true,
-  },
-  {
-    name: 'AWS Cloud Practitioner Essentials',
-    platform: 'Coursera / AWS',
-    instructor: 'Amazon Web Services',
-    date: 'August 2024',
-    id: 'CERT-AWS-CP-2024',
-    skills: ['AWS EC2', 'S3', 'IAM', 'Cloud Architecture', 'Pricing & Support'],
-    desc: 'Official AWS training covering core cloud concepts, AWS services, security, and pricing. This certification provided the foundational knowledge I needed to confidently discuss cloud infrastructure in internship interviews.',
-    color: 'blue',
-    badge: '☁️',
-    verified: true,
-  },
-  {
-    name: 'Python for Everybody Specialisation',
-    platform: 'Coursera / University of Michigan',
-    instructor: 'Dr Charles Severance',
-    date: 'November 2023',
-    id: 'CERT-PY4E-2023',
-    skills: ['Python', 'Data Structures', 'Web Scraping', 'Databases', 'JSON & APIs'],
-    desc: 'A five-course specialisation introducing Python programming through practical applications including data retrieval, SQL integration, and web scraping. I enrolled because Python is increasingly relevant in data-driven engineering roles.',
-    color: 'green',
-    badge: '🐍',
-    verified: true,
-  },
-  {
-    name: 'UI/UX Design Foundations',
-    platform: 'Google / Coursera',
-    instructor: 'Google UX Design Team',
-    date: 'February 2024',
-    id: 'CERT-UXGOOGLE-2024',
-    skills: ['User Research', 'Wireframing', 'Figma', 'Prototyping', 'Usability Testing'],
-    desc: 'Part of the Google UX Design Certificate, covering the end-to-end design process from user research to high-fidelity prototypes. I pursued this because I believe software engineers who understand design produce significantly better products.',
-    color: 'purple',
-    badge: '🎨',
     verified: true,
   },
 ]
@@ -105,9 +69,9 @@ export default function Certifications() {
       <div className="max-w-6xl mx-auto">
         <div className="animate-on-scroll mb-16 max-w-2xl">
           <p className="section-subheading">Certifications</p>
-          <h2 className="section-heading">Continuous<br />Learning Record</h2>
+          <h2 className="section-heading">Evidence of Skill<br />Improvement</h2>
           <p className="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
-            Beyond my degree, I pursue certifications that close the gap between academic theory and industry practice. Each certificate below represents a deliberate choice to deepen a specific competency.
+            This section presents evidence of a course completed within the last year to improve my technical and professional competencies.
           </p>
         </div>
 
@@ -164,7 +128,9 @@ export default function Certifications() {
                     <p className="text-xs font-mono text-slate-700 dark:text-slate-300 mt-0.5">{cert.id}</p>
                   </div>
                   <a
-                    href="#"
+                    href="https://simpli-web.app.link/e/6Mti1BptW2b"
+                    target="_blank"
+                    rel="noreferrer"
                     className={`flex items-center gap-1.5 text-xs font-medium ${c.label} hover:underline`}
                   >
                     View Certificate <ExternalLink size={11} />
@@ -178,10 +144,10 @@ export default function Certifications() {
         {/* Stats bar */}
         <div className="animate-on-scroll mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { label: 'Certificates Earned', value: '4' },
-            { label: 'Learning Hours', value: '120+' },
-            { label: 'Platforms', value: '3' },
-            { label: 'Skills Gained', value: '25+' },
+            { label: 'Certificates Included', value: '1' },
+            { label: 'Completion Window', value: 'Last Year' },
+            { label: 'Platform', value: '1' },
+            { label: 'Skills Improved', value: '4+' },
           ].map((stat) => (
             <div key={stat.label} className="bg-slate-100 dark:bg-slate-800 rounded-2xl p-5 text-center">
               <p className="font-display text-3xl font-semibold text-amber-500">{stat.value}</p>

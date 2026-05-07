@@ -1,4 +1,4 @@
-import { GitBranch, Globe, Mail, Heart, Printer } from 'lucide-react'
+import { GitBranch, Globe, Mail, Heart } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -30,13 +30,6 @@ export default function Footer() {
               className="text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
               <Mail size={20} />
             </a>
-            <div className="w-px h-5 bg-slate-200 dark:bg-slate-700"></div>
-            <button
-              onClick={() => window.print()}
-              className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-            >
-              <Printer size={16} /> Print Portfolio
-            </button>
           </div>
         </div>
 
@@ -45,7 +38,7 @@ export default function Footer() {
           <a href="#journal" className="hover:text-amber-500 transition-colors">Reflective Journal</a>
           <a href="#career" className="hover:text-amber-500 transition-colors">Career Plan</a>
           <a href="#cv" className="hover:text-amber-500 transition-colors">CV</a>
-          <a href="#certifications" className="hover:text-amber-500 transition-colors">Certifications</a>
+          <a href="#certifications" className="hover:text-amber-500 transition-colors">Course Evidence</a>
         </div>
       </div>
     </footer>

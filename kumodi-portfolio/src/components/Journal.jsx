@@ -4,43 +4,43 @@ import { MessageSquare, Users, Clock, Briefcase, FileText } from 'lucide-react'
 const reflections = [
   {
     icon: MessageSquare,
-    title: 'Communication Skills',
+    title: 'Business Writing and Formal Communication',
     color: 'amber',
-    content: `When I first joined the PPW module, I underestimated how much of professional success hinges not on technical expertise, but on how clearly you communicate your ideas. My first experience presenting a project proposal to a panel of lecturers was humbling. I stumbled over my words, struggled to maintain eye contact, and rushed through my slides because I was nervous. The feedback was direct but constructive: slow down, listen more than you speak, and learn to tailor your message to your audience.
+    content: `At the beginning of PPW, my writing style was too casual and often longer than necessary. I learned how to write in a professional tone using concise sentences, formal vocabulary, and clear structure. This was especially useful when preparing formal emails and short reports.
 
-Over the semester, I deliberately put myself in uncomfortable situations. I volunteered to lead group presentations, even when others were more confident speakers. I joined a campus debate club for one term specifically to practise articulating arguments under pressure. Gradually, I noticed a shift. I began to hear myself pausing for effect rather than filling silences with filler words. I started asking clarifying questions in group discussions instead of nodding along when I was unsure. By the end of the module, I presented our final PPW portfolio review with a composure I genuinely did not think I possessed at the start. Communication, I learned, is a craft — and like any craft, it rewards deliberate practice.`,
+I now pay close attention to subject lines, salutations, and calls to action when writing emails. I also proofread my writing before sending it. These habits helped me communicate more clearly with lecturers, teammates, and workplace supervisors during my internship.`,
   },
   {
     icon: Users,
-    title: 'Teamwork Experience',
+    title: 'Teamwork and Professional Conduct',
     color: 'blue',
-    content: `Our group assignment — building a mock consulting proposal for a fictitious fintech startup — threw five very different people together and asked us to produce one coherent deliverable. The early weeks were messy. We had overlapping responsibilities, unclear ownership, and at least two occasions where two members had independently worked on the same section without realising it. These were not comfortable moments, but they taught me more about collaboration than any lecture could.
+    content: `PPW emphasized that professionalism is shown through everyday behavior, not only major achievements. I improved simple but important practices such as being punctual, preparing before meetings, and responding respectfully even in stressful situations.
 
-I took on the role of informal project coordinator, setting up a shared Notion workspace and scheduling brief weekly sync meetings. What surprised me was that the biggest challenge was not the work itself, but managing different working styles and communication preferences. One teammate preferred asynchronous updates; another needed to talk things through in real time. Learning to bridge those preferences — and to advocate for structure without being overbearing — was a significant personal growth moment. By the final submission, our team produced a report we were genuinely proud of, and more importantly, we had developed a rhythm that felt respectful and effective.`,
+In group tasks, I practiced listening carefully, asking clarifying questions, and sharing updates regularly. This reduced misunderstandings and helped the team complete tasks on time. I now understand that collaboration depends on consistency, trust, and responsible communication.`,
   },
   {
     icon: Clock,
-    title: 'Time Management',
+    title: 'Telephone Skills and Active Listening',
     color: 'green',
-    content: `Balancing the PPW module with three other concurrent modules, an internship, and personal responsibilities was, to put it plainly, overwhelming at first. I was also doing my internship while studying, which made my schedule even more demanding. My initial strategy was to work reactively — addressing whatever deadline loomed largest. This led to late nights, inconsistent quality, and a persistent low-grade anxiety that followed me everywhere.
+    content: `One lesson I found very practical in PPW was effective telephone communication. I learned how tone, patience, and word choice can completely change a difficult conversation. I also learned how to handle complaints by listening first, collecting facts, and responding calmly.
 
-The turning point came when a visiting industry speaker introduced us to time-blocking and the concept of "deep work." I began treating my calendar as a contract with myself. I blocked two-hour focus sessions for complex tasks and protected them fiercely. I started keeping a simple weekly review log where I noted what I had planned, what I actually completed, and why any gaps existed. That honest audit of my own productivity was uncomfortable but revelatory. I discovered I was losing nearly two hours a day to fragmented task-switching. Restructuring my mornings alone reclaimed that time and fundamentally changed how I approached my studies.`,
+The active listening techniques from PPW improved my confidence in both academic and workplace discussions. I now focus on understanding the speaker's intent before replying, and I take quick notes during calls or meetings so I do not miss key details.`,
   },
   {
     icon: Briefcase,
-    title: 'Professional Behaviour',
+    title: 'CV Writing and Interview Preparation',
     color: 'purple',
-    content: `PPW challenged me to think about professionalism not as a costume you wear in certain settings, but as a consistent standard you hold yourself to in every interaction. Early in the module, I treated professional workshops somewhat casually — arriving a few minutes late, not fully disengaging from my phone during sessions. A frank one-on-one with my PPW lecturer made me confront what those habits communicated to others: indifference, a lack of respect for other people's time, and an immature understanding of the professional norms I would soon be expected to navigate.
+    content: `Before PPW, my CV listed information but did not clearly show my value. I learned to present achievements using action-based statements and to tailor content for specific roles. I also improved the layout so that recruiters can quickly identify my strengths.
 
-That conversation changed how I carried myself. I started arriving early to everything. I became more intentional about my digital presence, reviewing and cleaning up my LinkedIn profile and being more thoughtful about what I posted publicly. I learned the etiquette of professional email — concise subject lines, appropriate greetings, and always a clear call to action. These might sound like small things, but they compound into a professional identity, and I now understand that identity is constructed through hundreds of small, consistent choices rather than a single grand gesture.`,
+Mock interview practice helped me structure answers using real examples. I practiced common questions such as "Tell me about yourself" and behavioral questions using the STAR approach. This preparation reduced my anxiety and improved my confidence for internship interviews.`,
   },
   {
     icon: FileText,
-    title: 'CV Writing & Interview Preparation',
+    title: 'Personal Growth and Career Readiness',
     color: 'rose',
-    content: `Crafting my first professional CV was an exercise in both self-awareness and ruthless editing. My initial draft was three pages long, densely formatted, and organised like an academic transcript rather than a document designed to be skimmed in thirty seconds by a busy recruiter. Through peer reviews and lecturer feedback, I stripped it back to one focused page, reordered sections to lead with impact, and replaced passive descriptions with achievement-oriented language using the CAR (Context, Action, Result) framework wherever possible.
+    content: `Overall, PPW gave me a clearer idea of what it means to be workplace-ready. I now understand that communication, discipline, adaptability, and emotional intelligence are as important as coding skills in professional environments.
 
-The mock interview sessions were perhaps the most valuable — and most uncomfortable — component of the entire module. Being asked to sit across from a panel and answer "Tell me about yourself" in a structured, confident way without a script is genuinely difficult. My first mock interview was a disaster of rambling tangents and unnecessary qualifiers. But watching back the recorded session was instructive in a way that no feedback form could replicate. I could see my own body language, hear my own verbal tics, and understand precisely where I lost the panel's attention. By my second mock interview, I had prepared a structured narrative, practised behavioural questions using the STAR method, and researched the "company" I was supposedly interviewing with. The difference was stark, and it gave me real confidence heading into actual internship applications.`,
+The module transformed the way I present myself as an upcoming software engineer. I am more confident in formal communication, more organized in my work habits, and more prepared to enter the industry with a professional mindset.`,
   },
 ]
 
@@ -97,7 +97,7 @@ export default function Journal() {
           <p className="section-subheading">Reflective Journal</p>
           <h2 className="section-heading">Preparation for the<br />Professional World</h2>
           <p className="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed">
-            A personal account of the lessons, challenges, and growth I experienced throughout the PPW module — written honestly and in first person.
+            A personal reflection on key lessons from PPW, including business communication, listening, teamwork, CV preparation, and interview readiness.
           </p>
         </div>
 
@@ -136,7 +136,7 @@ export default function Journal() {
         <div className="animate-on-scroll mt-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-3xl p-8 text-white">
           <h3 className="font-display text-2xl font-semibold mb-3">Overall Reflection</h3>
           <p className="leading-relaxed opacity-90">
-            Looking back at the PPW module from where I stand today, the most profound realisation is that professional readiness is not a destination — it is a continuous process of self-examination and deliberate improvement. I entered this module thinking it would be a checkbox exercise alongside my technical subjects. I leave it understanding that the soft skills it cultivated are, in many ways, the foundation upon which all technical expertise must rest. I am more self-aware, more communicative, more disciplined with my time, and more intentional about how I present myself to the world. Those are not small gains.
+            Looking back, PPW was one of the most practical modules in my degree. It helped me connect academic knowledge with workplace expectations by teaching me how to communicate professionally, collaborate effectively, and plan my career with clear goals. These lessons continue to guide my daily work and long-term development.
           </p>
         </div>
       </div>

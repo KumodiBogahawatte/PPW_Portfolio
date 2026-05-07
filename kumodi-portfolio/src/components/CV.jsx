@@ -216,11 +216,11 @@ export default function CV() {
               </div>
             </section>
 
-            <section>
+            <section className="cv-projects-section">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Projects</h2>
-              <div className="space-y-5">
+              <div className="cv-projects-list space-y-5">
                 {projects.map((project) => (
-                  <div key={project.name} className="flex gap-4">
+                  <div key={project.name} className="cv-project-item flex gap-4">
                     <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
                     <div>
                       <div className="flex flex-wrap items-center gap-3">
