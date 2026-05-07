@@ -91,7 +91,7 @@ export default function Journal() {
   }, [])
 
   return (
-    <section id="journal" ref={ref} className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
+    <section id="journal" ref={ref} className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50" data-aos="fade-up">
       <div className="max-w-6xl mx-auto">
         <div className="animate-on-scroll mb-16 max-w-2xl">
           <p className="section-subheading">Reflective Journal</p>
@@ -122,7 +122,12 @@ export default function Journal() {
                 </div>
                 <div className="space-y-3 pl-14">
                   {item.content.split('\n\n').map((para, i) => (
-                    <p key={i} className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base">
+                    <p
+                      key={i}
+                      className="journal-para text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base"
+                      data-aos="fade-up"
+                      data-aos-delay={Math.min(i * 70, 220)}
+                    >
                       {para}
                     </p>
                   ))}

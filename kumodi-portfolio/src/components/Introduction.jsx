@@ -1,5 +1,5 @@
 import { GitBranch, Globe, Mail, ChevronDown, MapPin } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const interests = [
   "Professional Communication",
@@ -9,8 +9,15 @@ const interests = [
   "Software Engineering",
 ];
 
-export default function Introduction() {
+export default function Introduction({ startTyping = true }) {
   const ref = useRef(null);
+  const [typedName, setTypedName] = useState("");
+  const fullName = "Kumodi Bogahawatte";
+  const firstNameLength = 6; // "Kumodi"
+  const visibleFirst = typedName.slice(0, Math.min(firstNameLength, typedName.length));
+  const visibleLast = typedName.length > firstNameLength + 1
+    ? typedName.slice(firstNameLength + 1)
+    : "";
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll(".animate-on-scroll") || [];
@@ -25,28 +32,57 @@ export default function Introduction() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!startTyping) return;
+
+    setTypedName("");
+    let index = 0;
+    let timeoutId;
+
+    const typeNext = () => {
+      index += 1;
+      setTypedName(fullName.slice(0, index));
+      if (index < fullName.length) {
+        timeoutId = setTimeout(typeNext, 200);
+      }
+    };
+
+    timeoutId = setTimeout(typeNext, 260);
+    return () => clearTimeout(timeoutId);
+  }, [startTyping]);
+
   return (
     <section
       id="introduction"
       ref={ref}
       className="min-h-screen flex flex-col justify-center pt-20 pb-16 px-6"
+      data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto w-full">
         {/* Hero grid */}
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Left – text */}
           <div className="md:col-span-3 space-y-6">
-            <div className="animate-on-scroll">
+            <div className="animate-on-scroll heading-fade" data-aos="fade-up">
               <p className="section-subheading">Academic Portfolio · 2026</p>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 dark:text-white leading-tight">
-                Kumodi
-                <span className="block text-amber-500">Bogahawatte</span>
+              <h1 className="typing-name font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-slate-900 dark:text-white leading-tight">
+                {visibleFirst}
+                {visibleLast ? (
+                  <span className="block text-amber-500">
+                    {visibleLast}
+                    <span className="typing-cursor" aria-hidden="true">|</span>
+                  </span>
+                ) : (
+                  <span className="typing-cursor" aria-hidden="true">|</span>
+                )}
               </h1>
             </div>
 
             <div
               className="animate-on-scroll"
               style={{ transitionDelay: "0.1s" }}
+              data-aos="fade-up"
+              data-aos-delay="80"
             >
               <p className="text-lg text-slate-600 dark:text-slate-300 font-body flex items-center gap-2">
                 <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
@@ -60,6 +96,8 @@ export default function Introduction() {
             <div
               className="animate-on-scroll"
               style={{ transitionDelay: "0.2s" }}
+              data-aos="fade-up"
+              data-aos-delay="120"
             >
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 I am Kumodi Bogahawatte, a fourth-year Information Technology
@@ -73,6 +111,8 @@ export default function Introduction() {
             <div
               className="animate-on-scroll"
               style={{ transitionDelay: "0.3s" }}
+              data-aos="fade-up"
+              data-aos-delay="170"
             >
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 The PPW module helped me understand that technical ability alone
@@ -88,6 +128,8 @@ export default function Introduction() {
             <div
               className="animate-on-scroll flex flex-wrap gap-2"
               style={{ transitionDelay: "0.4s" }}
+              data-aos="fade-up"
+              data-aos-delay="220"
             >
               {interests.map((i) => (
                 <span key={i} className="tag">
@@ -98,8 +140,10 @@ export default function Introduction() {
 
             {/* Social links */}
             <div
-              className="animate-on-scroll flex items-center gap-4 pt-2"
+              className="animate-on-scroll flex flex-wrap items-center gap-3 pt-2"
               style={{ transitionDelay: "0.5s" }}
+              data-aos="fade-up"
+              data-aos-delay="260"
             >
               <a
                 href="mailto:kumodib@gmail.com"
@@ -130,6 +174,8 @@ export default function Introduction() {
           <div
             className="md:col-span-2 animate-on-scroll"
             style={{ transitionDelay: "0.3s" }}
+            data-aos="zoom-in"
+            data-aos-delay="150"
           >
             <div className="relative">
               {/* Decorative block */}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Award, ExternalLink, Calendar, CheckCircle2 } from 'lucide-react'
 
 const certs = [
@@ -53,6 +53,13 @@ const colorMap = {
 
 export default function Certifications() {
   const ref = useRef(null)
+  const [ready, setReady] = useState(false)
+  const [countStarted, setCountStarted] = useState(false)
+  const [stats, setStats] = useState({
+    certificates: 0,
+    platform: 0,
+    skills: 0,
+  })
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll('.animate-on-scroll') || []
@@ -64,8 +71,52 @@ export default function Certifications() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setReady(true), 180)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const section = ref.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setCountStarted(true)
+        })
+      },
+      { threshold: 0.25 },
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!countStarted) return
+
+    const targets = { certificates: 1, platform: 1, skills: 4 }
+    const duration = 1100
+    const start = performance.now()
+    let rafId
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      setStats({
+        certificates: Math.round(targets.certificates * progress),
+        platform: Math.round(targets.platform * progress),
+        skills: Math.round(targets.skills * progress),
+      })
+      if (progress < 1) rafId = requestAnimationFrame(tick)
+    }
+
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
+  }, [countStarted])
+
   return (
-    <section id="certifications" ref={ref} className="py-24 px-6">
+    <section id="certifications" ref={ref} className="py-24 px-6" data-aos="fade-up">
       <div className="max-w-6xl mx-auto">
         <div className="animate-on-scroll mb-16 max-w-2xl">
           <p className="section-subheading">Certifications</p>
@@ -81,11 +132,13 @@ export default function Certifications() {
             return (
               <div
                 key={cert.name}
-                className={`animate-on-scroll card border ${c.border} flex flex-col`}
+                className={`animate-on-scroll card border ${c.border} flex flex-col ${ready ? 'cert-zoom-in' : ''}`}
                 style={{ transitionDelay: `${idx * 0.1}s` }}
+                data-aos="zoom-in-up"
+                data-aos-delay={idx * 120}
               >
                 {/* Top badge strip */}
-                <div className={`${c.bg} -mx-6 -mt-6 px-6 py-4 mb-5 rounded-t-2xl border-b ${c.border} flex items-start justify-between gap-3`}>
+                <div className={`${c.bg} -mx-6 -mt-6 px-6 py-4 mb-5 rounded-t-2xl border-b ${c.border} flex flex-col sm:flex-row items-start justify-between gap-3`}>
                   <div className="flex items-center gap-3">
                     <div className={`w-12 h-12 rounded-2xl ${c.platBg} flex items-center justify-center text-2xl shadow-sm flex-shrink-0`}>
                       {cert.badge}
@@ -104,7 +157,7 @@ export default function Certifications() {
                 </div>
 
                 {/* Meta */}
-                <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
                   <span className="flex items-center gap-1"><Calendar size={12} /> {cert.date}</span>
                   <span className="flex items-center gap-1"><Award size={12} /> {cert.instructor}</span>
                 </div>
@@ -122,7 +175,7 @@ export default function Certifications() {
                 </div>
 
                 {/* Certificate preview card */}
-                <div className={`${c.bg} rounded-xl border ${c.border} p-4 flex items-center justify-between`}>
+                <div className={`${c.bg} rounded-xl border ${c.border} p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3`}>
                   <div>
                     <p className="text-xs font-mono text-slate-500 dark:text-slate-400">Certificate ID</p>
                     <p className="text-xs font-mono text-slate-700 dark:text-slate-300 mt-0.5">{cert.id}</p>
@@ -144,10 +197,10 @@ export default function Certifications() {
         {/* Stats bar */}
         <div className="animate-on-scroll mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { label: 'Certificates Included', value: '1' },
+            { label: 'Certificates Included', value: String(stats.certificates) },
             { label: 'Completion Window', value: 'Last Year' },
-            { label: 'Platform', value: '1' },
-            { label: 'Skills Improved', value: '4+' },
+            { label: 'Platform', value: String(stats.platform) },
+            { label: 'Skills Improved', value: `${stats.skills}+` },
           ].map((stat) => (
             <div key={stat.label} className="bg-slate-100 dark:bg-slate-800 rounded-2xl p-5 text-center">
               <p className="font-display text-3xl font-semibold text-amber-500">{stat.value}</p>
@@ -155,6 +208,7 @@ export default function Certifications() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

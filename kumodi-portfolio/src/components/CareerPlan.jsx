@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { Target, TrendingUp, Star, CheckCircle2, ArrowRight } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Target, TrendingUp, Star, CheckCircle2 } from 'lucide-react'
 
 const phases = [
   {
@@ -128,6 +128,7 @@ const colorText = {
 
 export default function CareerPlan() {
   const ref = useRef(null)
+  const [activePhaseIdx, setActivePhaseIdx] = useState(0)
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll('.animate-on-scroll') || []
@@ -140,7 +141,7 @@ export default function CareerPlan() {
   }, [])
 
   return (
-    <section id="career" ref={ref} className="py-24 px-6">
+    <section id="career" ref={ref} className="py-24 px-6" data-aos="fade-up">
       <div className="max-w-6xl mx-auto">
         <div className="animate-on-scroll mb-16 max-w-2xl">
           <p className="section-subheading">Career Development</p>
@@ -150,66 +151,69 @@ export default function CareerPlan() {
           </p>
         </div>
 
-        {/* Timeline visual header */}
-        <div className="animate-on-scroll mb-12 hidden md:flex items-center gap-0">
-          {phases.map((p, i) => (
-            <div key={p.label} className="flex items-center flex-1">
-              <div className="flex flex-col items-center gap-2 flex-shrink-0">
-                <div className={`w-12 h-12 rounded-full ${p.bgColor} flex items-center justify-center shadow-lg`}>
-                  <p.icon size={20} className="text-white" />
-                </div>
-                <span className="text-xs font-mono text-slate-500">{p.period}</span>
-              </div>
-              {i < phases.length - 1 && (
-                <div className="flex-1 h-0.5 bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-600 dark:to-slate-700 mx-3 relative">
-                  <ArrowRight size={14} className="absolute right-0 -top-2 text-slate-400" />
-                </div>
-              )}
-            </div>
+        {/* Clickable phase selector */}
+        <div className="animate-on-scroll mb-10 flex flex-wrap gap-3">
+          {phases.map((phase, idx) => (
+            <button
+              key={phase.label}
+              type="button"
+              onClick={() => setActivePhaseIdx(idx)}
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+                activePhaseIdx === idx
+                  ? 'bg-amber-500 text-white border-amber-500 shadow-sm'
+                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-amber-300'
+              }`}
+            >
+              {phase.period}
+            </button>
           ))}
         </div>
 
-        {/* Phase cards */}
-        <div className="space-y-10">
-          {phases.map((phase, idx) => {
-            const Icon = phase.icon
-            return (
-              <div
-                key={phase.label}
-                className={`animate-on-scroll card border-l-4 ${phase.borderColor}`}
-                style={{ transitionDelay: `${idx * 0.1}s` }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 rounded-2xl ${phase.lightBg} flex items-center justify-center`}>
-                    <Icon size={22} className={colorText[phase.color]} />
-                  </div>
-                  <div>
-                    <p className={`text-xs font-mono uppercase tracking-widest ${colorText[phase.color]}`}>{phase.label}</p>
-                    <h3 className="font-display text-2xl font-semibold text-slate-900 dark:text-white">{phase.period}</h3>
-                  </div>
+        {/* Active phase card */}
+        {(() => {
+          const phase = phases[activePhaseIdx]
+          const Icon = phase.icon
+          return (
+            <div
+              key={phase.label}
+              className={`animate-on-scroll card border-l-4 ${phase.borderColor}`}
+              data-aos="fade-up"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-12 h-12 rounded-2xl ${phase.lightBg} flex items-center justify-center`}>
+                  <Icon size={22} className={colorText[phase.color]} />
                 </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  {phase.goals.map((g) => (
-                    <div key={g.heading} className={`${phase.lightBg} rounded-xl p-4`}>
-                      <h4 className="font-body font-semibold text-sm text-slate-700 dark:text-slate-200 mb-3 uppercase tracking-wide">
-                        {g.heading}
-                      </h4>
-                      <ul className="space-y-2">
-                        {g.items.map((item) => (
-                          <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                            <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${colorText[phase.color]}`} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div>
+                  <p className={`text-xs font-mono uppercase tracking-widest ${colorText[phase.color]}`}>{phase.label}</p>
+                  <h3 className="font-display text-2xl font-semibold text-slate-900 dark:text-white">{phase.period}</h3>
                 </div>
               </div>
-            )
-          })}
-        </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {phase.goals.map((g) => (
+                  <div key={g.heading} className={`${phase.lightBg} rounded-xl p-4`}>
+                    <h4 className="font-body font-semibold text-sm text-slate-700 dark:text-slate-200 mb-3 uppercase tracking-wide">
+                      {g.heading}
+                    </h4>
+                    <ul className="space-y-2">
+                      {g.items.map((item, itemIdx) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300"
+                          data-aos="fade-up"
+                          data-aos-delay={Math.min(itemIdx * 60, 220)}
+                        >
+                          <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${colorText[phase.color]}`} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
       </div>
     </section>
   )

@@ -33,6 +33,15 @@ export default function Navbar({ dark, toggleDark }) {
     return () => observer.disconnect()
   }, [])
 
+  const handleNavClick = (href, closeMenu = false) => (e) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    if (closeMenu) setMenuOpen(false)
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 no-print ${
@@ -56,7 +65,8 @@ export default function Navbar({ dark, toggleDark }) {
             <a
               key={item.href}
               href={item.href}
-              className={`nav-link ${active === item.href ? 'text-amber-600 dark:text-amber-400' : ''}`}
+              className={`nav-link ${active === item.href ? 'active text-amber-600 dark:text-amber-400' : ''}`}
+              onClick={handleNavClick(item.href)}
             >
               {item.label}
             </a>
@@ -89,7 +99,7 @@ export default function Navbar({ dark, toggleDark }) {
               key={item.href}
               href={item.href}
               className="nav-link text-base"
-              onClick={() => setMenuOpen(false)}
+              onClick={handleNavClick(item.href, true)}
             >
               {item.label}
             </a>

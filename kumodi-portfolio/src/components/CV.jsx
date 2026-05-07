@@ -135,7 +135,7 @@ export default function CV() {
   }, [])
 
   return (
-    <section id="cv" ref={ref} className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
+    <section id="cv" ref={ref} className="py-24 px-6 bg-slate-50 dark:bg-slate-900/50" data-aos="fade-up">
       <div className="max-w-5xl mx-auto">
         <div className="animate-on-scroll flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <div>
@@ -151,30 +151,36 @@ export default function CV() {
           </a>
         </div>
 
-        <div id="cv-printable" ref={cvRef} className="animate-on-scroll bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+        <div
+          id="cv-printable"
+          ref={cvRef}
+          className="animate-on-scroll bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <div className="bg-slate-950 text-white px-8 py-10">
             <div className="flex flex-col gap-4">
               <div>
                 <h1 className="font-display text-4xl font-semibold">Kumodi Bogahawatte</h1>
                 <p className="text-amber-400 font-mono text-sm mt-1 tracking-wide">Software Engineering Undergraduate</p>
               </div>
-              <div className="grid gap-2 text-sm text-slate-300 md:grid-cols-2 lg:grid-cols-3">
-                <span className="flex items-center gap-1.5"><Mail size={13} /> kumodib@gmail.com</span>
-                <span className="flex items-center gap-1.5"><Phone size={13} /> +94 76 850 1850</span>
-                <span className="flex items-center gap-1.5"><MapPin size={13} /> Colombo, Sri Lanka</span>
-                <a href="https://www.linkedin.com/in/kumodibogahawatte" className="flex items-center gap-1.5 hover:text-amber-400 transition-colors"><Globe size={13} /> linkedin.com/in/kumodibogahawatte</a>
-                <a href="https://github.com/KumodiBogahawatte" className="flex items-center gap-1.5 hover:text-amber-400 transition-colors"><GitBranch size={13} /> github.com/KumodiBogahawatte</a>
+              <div className="grid gap-2 text-xs sm:text-sm text-slate-300 md:grid-cols-2 lg:grid-cols-3">
+                <span className="flex items-center gap-1.5 break-all"><Mail size={13} className="flex-shrink-0" /> kumodib@gmail.com</span>
+                <span className="flex items-center gap-1.5"><Phone size={13} className="flex-shrink-0" /> +94 76 850 1850</span>
+                <span className="flex items-center gap-1.5"><MapPin size={13} className="flex-shrink-0" /> Colombo, Sri Lanka</span>
+                <a href="https://www.linkedin.com/in/kumodibogahawatte" className="flex items-center gap-1.5 break-all hover:text-amber-400 transition-colors"><Globe size={13} className="flex-shrink-0" /> linkedin.com/in/kumodibogahawatte</a>
+                <a href="https://github.com/KumodiBogahawatte" className="flex items-center gap-1.5 break-all hover:text-amber-400 transition-colors"><GitBranch size={13} className="flex-shrink-0" /> github.com/KumodiBogahawatte</a>
               </div>
             </div>
           </div>
 
           <div className="px-8 py-8 space-y-6">
-            <section>
+            <section data-aos="fade-up" data-aos-delay="80">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Professional Summary</h2>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base">{summary}</p>
             </section>
 
-            <section>
+            <section data-aos="fade-up" data-aos-delay="120">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Education</h2>
               <div className="space-y-4">
                 {education.map((entry) => (
@@ -191,7 +197,7 @@ export default function CV() {
               </div>
             </section>
 
-            <section>
+            <section data-aos="fade-up" data-aos-delay="150">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Experience</h2>
               <div className="space-y-5">
                 {experience.map((ex) => (
@@ -216,7 +222,7 @@ export default function CV() {
               </div>
             </section>
 
-            <section className="cv-projects-section">
+            <section className="cv-projects-section" data-aos="fade-up" data-aos-delay="180">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Projects</h2>
               <div className="cv-projects-list space-y-5">
                 {projects.map((project) => (
@@ -237,7 +243,7 @@ export default function CV() {
               </div>
             </section>
 
-            <section>
+            <section data-aos="fade-up" data-aos-delay="210">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Technical Skills</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {Object.entries(technicalSkills).map(([category, items]) => (
@@ -261,7 +267,7 @@ export default function CV() {
               </div>
             </section>
 
-            <section>
+            <section data-aos="fade-up" data-aos-delay="230">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">Extracurricular Activities</h2>
               <div className="space-y-4">
                 {extracurricularActivities.map((section) => (
@@ -279,7 +285,7 @@ export default function CV() {
               </div>
             </section>
 
-            <section>
+            <section data-aos="fade-up" data-aos-delay="250">
               <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white border-b border-amber-400 pb-2 mb-4 uppercase tracking-wide text-sm">References</h2>
               <div className="space-y-4">
                 {references.map((reference) => (
